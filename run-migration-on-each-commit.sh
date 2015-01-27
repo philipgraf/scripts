@@ -1,0 +1,1 @@
+git log --oneline --reverse --follow app/DoctrineMigrations | cut -d " " -f 1 | while read commit; do git checkout $commit && composer.phar install && php app/console doctrine:migrations:migrate --no-interaction ; done
